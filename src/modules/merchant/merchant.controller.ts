@@ -1,5 +1,5 @@
 import { ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { MerchantDto } from './dto/merchant-dto';
+import { MerchantDTO } from './dto/merchant-dto';
 import { Body, Controller, HttpStatus, Post } from '@nestjs/common';
 import { IMerchantService } from './merchant.service.interface';
 
@@ -12,10 +12,10 @@ export class MerchantController {
   @ApiResponse({
     status: HttpStatus.CREATED,
     description: 'Merchant created',
-    type: MerchantDto
+    type: MerchantDTO
   })
-  @ApiBody({ type: MerchantDto })
-  createMerchant(@Body() data: MerchantDto) {
+  @ApiBody({ type: MerchantDTO })
+  createMerchant(@Body() data: MerchantDTO) {
     this.service.createMerchant(data);
     return data;
   }
