@@ -1,9 +1,6 @@
-import { MerchantModule } from './modules/merchant/merchant.module';
 import { Module } from '@nestjs/common';
-
 @Module({
-  imports: [
-    MerchantModule,],
+  imports: [],
   controllers: [],
   providers: [],
 })
