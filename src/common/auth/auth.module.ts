@@ -1,15 +1,14 @@
 import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
-import { PassportModule } from '@nestjs/passport';
 import { AuthService } from './auth.service';
 import { JwtStrategy } from './jwt.strategy';
 import { AuthController } from './auth.controller';
+import { PassportModule } from '@nestjs/passport';
 import { MerchantModule } from 'src/modules/merchant/merchant.module';
-
 
 @Module({
   imports: [
-    MerchantModule
+    MerchantModule,
     PassportModule,
     JwtModule.register({
       secret: process.env.SECRET_KEY_JWT,
