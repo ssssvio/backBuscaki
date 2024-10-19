@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TypeOrmConfig } from './infra/config/typeorm.factory';
 import { MerchantModule } from './modules/merchant/merchant.module';
+import { AuthModule } from './common/auth/auth.module';
 
 @Module({
   imports: [
@@ -12,7 +13,8 @@ import { MerchantModule } from './modules/merchant/merchant.module';
     TypeOrmModule.forRootAsync({
       useClass: TypeOrmConfig
     }),
-    MerchantModule
+    MerchantModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],
