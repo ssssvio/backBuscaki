@@ -23,6 +23,10 @@ export class MerchantRepository {
     return this.merchantRepository.find();
   }
 
+  findByUsername(username: string): Promise<MerchantEntity | null> {
+    return this.merchantRepository.findOne({ where: { username } });
+  }
+
   async save(car: MerchantEntity): Promise<void> {
     await this.merchantRepository.save(car);
   }
