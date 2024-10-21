@@ -13,4 +13,4 @@ export class PostMerchantUseCase implements IUsecase {
     this.merchantRepository.save(merchant);
     return merchant;
   }
-}
+};
