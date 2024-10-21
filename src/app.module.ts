@@ -1,3 +1,5 @@
+import { CustomerModule } from './modules/customer/customer.module';
+import { CustomerController } from './modules/customer/customer.controller';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -7,6 +9,7 @@ import { AuthModule } from './common/auth/auth.module';
 
 @Module({
   imports: [
+    CustomerModule,
     ConfigModule.forRoot({
       isGlobal: true
     }),
@@ -16,7 +19,8 @@ import { AuthModule } from './common/auth/auth.module';
     MerchantModule,
     AuthModule,
   ],
-  controllers: [],
+  controllers: [
+    CustomerController,],
   providers: [],
 })
 export class AppModule { }
