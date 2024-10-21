@@ -11,8 +11,8 @@ export class MerchantRepository {
     private readonly merchantRepository: Repository<MerchantEntity>,
   ) { }
 
-  create(carData: MerchantDTO): MerchantEntity {
-    return this.merchantRepository.create(carData);
+  create(data: MerchantDTO): MerchantEntity {
+    return this.merchantRepository.create(data);
   }
 
   findOne(id: number): Promise<MerchantEntity> {
@@ -27,11 +27,11 @@ export class MerchantRepository {
     return this.merchantRepository.findOne({ where: { username } });
   }
 
-  async save(car: MerchantEntity): Promise<void> {
-    await this.merchantRepository.save(car);
+  async save(merchant: MerchantEntity): Promise<void> {
+    await this.merchantRepository.save(merchant);
   }
 
-  async remove(car: MerchantEntity): Promise<void> {
-    await this.merchantRepository.remove(car);
+  async remove(merchant: MerchantEntity): Promise<void> {
+    await this.merchantRepository.remove(merchant);
   }
 }

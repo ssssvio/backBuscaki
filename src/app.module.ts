@@ -9,15 +9,15 @@ import { AuthModule } from './common/auth/auth.module';
 
 @Module({
   imports: [
-    CustomerModule,
     ConfigModule.forRoot({
       isGlobal: true
     }),
     TypeOrmModule.forRootAsync({
       useClass: TypeOrmConfig
     }),
-    MerchantModule,
     AuthModule,
+    CustomerModule,
+    MerchantModule,
   ],
   controllers: [
     CustomerController,],
