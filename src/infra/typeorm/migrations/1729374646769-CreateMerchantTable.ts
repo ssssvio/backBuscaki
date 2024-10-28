@@ -1,7 +1,6 @@
 import { MigrationInterface, QueryRunner } from "typeorm";
 
 export class CreateMerchantTable1729374646769 implements MigrationInterface {
-
   public async up(queryRunner: QueryRunner): Promise<void> {
     queryRunner.query(` 
             CREATE TABLE merchant (
