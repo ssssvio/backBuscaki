@@ -1,4 +1,23 @@
-import { Controller } from '@nestjs/common';
+import { CustomerDTO } from './dto/customer-dto';
+import { ICustomerService } from './customer.service.interface';
+import { ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { Body, Controller, HttpStatus, Post, UsePipes } from '@nestjs/common';
 
-@Controller()
-export class CustomerController { }
+@ApiTags('Customer')
+@Controller('customer')
+export class CustomerController {
+  constructor(private readonly service: ICustomerService) { }
+
+  @Post()
+  @UsePipes()
+  @ApiResponse({
+    status: HttpStatus.CREATED,
+    description: 'Customer created',
+    type: CustomerDTO
+  })
+  @ApiBody({ type: CustomerDTO })
+  createCustomer(@Body() data: CustomerDTO) {
+    this.service.createCustomer(data);
+    return data;
+  }
+};

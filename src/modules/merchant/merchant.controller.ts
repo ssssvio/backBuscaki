@@ -20,4 +20,4 @@ export class MerchantController {
     this.service.createMerchant(data);
     return data;
   }
-}
+};
