@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { MerchantService } from './merchant.service';
-import { MerchantController } from './merchant.controller';
 import { MerchantDataModule } from 'src/data/merchant';
-import { PostMerchantUseCase } from './usecases/post-merchant.usecase';
+import { MerchantController } from './merchant.controller';
 import { IMerchantService } from './merchant.service.interface';
+import { PostMerchantUseCase } from './usecases/post-merchant.usecase';
 
 @Module({
 	imports: [MerchantDataModule],
