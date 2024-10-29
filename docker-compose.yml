@@ -34,5 +34,18 @@ services:
     env_file:
       - .env
 
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: buscakiapi
+    restart: always
+    ports:
+      - '3000:3000'
+    depends_on:
+      - migrations
+    env_file:
+      - .env
+
 volumes:
   sqlvolume:

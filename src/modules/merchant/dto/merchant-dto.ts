@@ -15,5 +15,5 @@ export class MerchantDTO {
   @ApiProperty({ example: 'your-key-pix' })
   @IsString()
   @IsNotEmpty()
-  readonly keyPix: string;
+  readonly keypix: string;
 }

@@ -8,5 +8,5 @@ export class MerchantResponse {
   password: string;
 
   @ApiProperty()
-  keyPix: string;
+  keypix: string;
 }

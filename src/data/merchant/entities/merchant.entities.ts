@@ -12,5 +12,5 @@ export class MerchantEntity {
   password: string;
 
   @Column({ type: "varchar", length: 255 })
-  keyPix: string;
+  keypix: string;
 };
