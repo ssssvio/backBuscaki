@@ -5,7 +5,6 @@ import { AuthModule } from './common/auth/auth.module';
 import { TypeOrmConfig } from './infra/config/typeorm.factory';
 import { MerchantModule } from './modules/merchant/merchant.module';
 import { CustomerModule } from './modules/customer/customer.module';
-import { CustomerController } from './modules/customer/customer.controller';
 
 @Module({
   imports: [
@@ -15,12 +14,11 @@ import { CustomerController } from './modules/customer/customer.controller';
     TypeOrmModule.forRootAsync({
       useClass: TypeOrmConfig
     }),
-    AuthModule,
     CustomerModule,
     MerchantModule,
+    AuthModule
   ],
-  controllers: [
-    CustomerController,],
+  controllers: [],
   providers: [],
 })
 export class AppModule { }
