@@ -5,9 +5,11 @@ import { JwtStrategy } from './jwt.strategy';
 import { AuthController } from './auth.controller';
 import { PassportModule } from '@nestjs/passport';
 import { MerchantModule } from 'src/modules/merchant/merchant.module';
+import { CustomerModule } from 'src/modules/customer/customer.module';
 
 @Module({
   imports: [
+    CustomerModule,
     MerchantModule,
     PassportModule,
     JwtModule.register({

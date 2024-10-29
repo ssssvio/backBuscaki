@@ -1,7 +1,7 @@
 services:
   sqlserver:
     image: mcr.microsoft.com/mssql/server:2019-latest
-    container_name: carrentaldb
+    container_name: buscakidb
     restart: always
     environment:
       - ACCEPT_EULA=Y 
@@ -16,7 +16,7 @@ services:
 
   init-db:
     image: mcr.microsoft.com/mssql-tools
-    container_name: car-rental-tools
+    container_name: busca-aki-tools
     depends_on:
       - sqlserver
     entrypoint: [ "/bin/bash", "-c", "sleep 20s && /opt/mssql-tools/bin/sqlcmd -S sqlserver -U SA -P ${SA_PASSWORD} -i /tmp/init.sql || exit 1"]
@@ -27,7 +27,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: car-migrations
+    container_name: buscaki-migrations
     depends_on:
       - init-db
     entrypoint: /bin/sh -c "sleep 25s && npx typeorm migration:run -d dist/infra/typeorm/ormconfig"

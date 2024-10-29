@@ -4,7 +4,6 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { CustomerEntity } from '../entities/customer.entities';
 import { CustomerDTO } from 'src/modules/customer/dto/customer-dto';
 
-
 @Injectable()
 export class CustomerRepository {
   constructor(
