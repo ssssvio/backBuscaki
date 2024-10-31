@@ -15,7 +15,10 @@ export class AuthService {
     const { username, password } = login;
 
     const user = await this.getMerchantByUsername.execute(username);
+    console.log("user:", user);
     if (!user || !(await bcryptjs.compare(password, user.password))) {
+      console.log(password);
+      console.log(user.password);
       throw new UnauthorizedException('Invalid credentials!');
     };
 

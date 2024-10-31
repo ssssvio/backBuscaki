@@ -5,7 +5,7 @@ import { CustomerRepository } from './repository/customer.repository';
 
 @Module({
   imports: [TypeOrmModule.forFeature([CustomerEntity])],
-  providers: [TypeOrmModule, CustomerRepository],
-  exports: [CustomerRepository],
+  providers: [CustomerRepository],
+  exports: [TypeOrmModule, CustomerRepository],
 })
 export class CustomerDataModule { }

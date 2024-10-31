@@ -5,7 +5,7 @@ import { MerchantRepository } from './repository/merchant.repository';
 
 @Module({
   imports: [TypeOrmModule.forFeature([MerchantEntity])],
-  providers: [TypeOrmModule, MerchantRepository],
-  exports: [MerchantRepository],
+  providers: [MerchantRepository],
+  exports: [TypeOrmModule, MerchantRepository],
 })
 export class MerchantDataModule { }

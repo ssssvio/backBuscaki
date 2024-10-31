@@ -4,6 +4,7 @@ import { MerchantDataModule } from 'src/data/merchant';
 import { MerchantController } from './merchant.controller';
 import { IMerchantService } from './merchant.service.interface';
 import { PostMerchantUseCase } from './usecases/post-merchant.usecase';
+import { MerchantRepository } from 'src/data/merchant/repository/merchant.repository';
 import { GetMerchantByUsernameUseCase } from './usecases/get-merchantByUsername.usecase';
 
 @Module({
@@ -13,6 +14,7 @@ import { GetMerchantByUsernameUseCase } from './usecases/get-merchantByUsername.
 		MerchantService,
 		PostMerchantUseCase,
 		GetMerchantByUsernameUseCase,
+		MerchantRepository,
 		{
 			provide: IMerchantService,
 			useClass: MerchantService,

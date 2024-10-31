@@ -9,9 +9,7 @@ export const AppDataSource = new DataSource({
   database: process.env.TYPEORM_DATABASE,
   synchronize: false,
   logging: false,
-  entities: [
-    'dist/data/**/entities/*.entity{.ts,.js}',
-  ],
+  entities: [__dirname + '/**/*.entity{.ts,.js}'],
   migrations: [__dirname + '/migrations/*{.ts,.js}'],
   migrationsRun: true,
   subscribers: [],
