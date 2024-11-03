@@ -16,8 +16,7 @@ export class MerchantController {
     type: MerchantDTO
   })
   @ApiBody({ type: MerchantDTO })
-  createMerchant(@Body() data: MerchantDTO) {
-    this.service.createMerchant(data);
-    return data;
+  async createMerchant(@Body() data: MerchantDTO) {
+    return await this.service.createMerchant(data);
   }
 };

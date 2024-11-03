@@ -16,8 +16,7 @@ export class CustomerController {
     type: CustomerDTO
   })
   @ApiBody({ type: CustomerDTO })
-  createCustomer(@Body() data: CustomerDTO) {
-    this.service.createCustomer(data);
-    return data;
+  async createCustomer(@Body() data: CustomerDTO) {
+    return await this.service.createCustomer(data);
   }
 };

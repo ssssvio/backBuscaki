@@ -10,8 +10,8 @@ export class PostMerchantUseCase implements ICreateMerchantUsecase {
   constructor(private readonly merchantRepository: MerchantRepository) { }
 
   async execute(data: MerchantDTO): Promise<MerchantEntity> {
-    const user = await this.merchantRepository.findByUsername(data.username);
-    if (user) throw new NotFoundException(`User with username ${data.username} already exists!`);
+    if (await this.merchantRepository.findByUsername(data.username))
+      throw new NotFoundException(`User with username ${data.username} already exists!`);
 
     const hashedPassword = await bcryptjs.hash(data.password, 10);
     const newMerchant = this.merchantRepository.create({
