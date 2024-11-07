@@ -16,7 +16,7 @@ export class TypeOrmConfig implements TypeOrmOptionsFactory {
       synchronize: false,
       logging: false,
       retryAttempts: 10,
-      retryDelay: 25000,
+      retryDelay: 30000,
       entities: [__dirname + '/**/*.entity{.ts,.js}', MerchantEntity, CustomerEntity],
       migrations: [__dirname + '/migrations/*{.ts,.js}'],
       migrationsRun: true,
