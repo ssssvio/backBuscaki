@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { PartEntity } from "src/data/part/entities/part.entities";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('merchant')
 export class MerchantEntity {
@@ -13,4 +14,7 @@ export class MerchantEntity {
 
   @Column({ type: "varchar", length: 255 })
   keypix: string;
+
+  @OneToMany(() => PartEntity, (part) => part.merchant)
+  parts: PartEntity[];
 };
