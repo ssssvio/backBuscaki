@@ -23,7 +23,7 @@ export class AuthService {
     if (!user) user = await this.getCustomerByUsername.execute(username);
 
     if (!user || !(await bcryptjs.compare(password, user.password))) {
-      throw new UnauthorizedException('Invalid credentials!');
+      throw new UnauthorizedException('Username or password invalid!');
     }
 
     const role = user.keypix ? 'Merchant' : 'Customer';

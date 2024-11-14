@@ -7,24 +7,23 @@ export class PartEntity {
   id: number;
 
   @Column({ type: "varchar", length: 255 })
-  name: string;
+  product: string;
+
+  @Column({ type: "varchar", length: 255 })
+  brand: string;
 
   @Column({ type: "bigint" })
   amount: number;
 
   @Column({ type: "varchar", length: 255 })
-  mark: string;
+  quality: string;
 
-  @Column({ type: "varchar", length: 255 })
+  @Column({ type: "varchar", length: 255, nullable: true })
   color: string;
 
   @Column({ type: "decimal", precision: 10, scale: 2 })
   value: number;
 
-  @Column({ type: "varchar", length: 255 })
-  title: string;
-
-  @ManyToOne(() => MerchantEntity, (merchant) => merchant.parts)
-  @Column({ name: "id_merchant" })
+  @ManyToOne(() => MerchantEntity, (merchant) => merchant.parts, { onDelete: "CASCADE" })
   merchant: MerchantEntity;
 }
