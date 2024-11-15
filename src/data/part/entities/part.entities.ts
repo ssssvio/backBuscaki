@@ -24,6 +24,10 @@ export class PartEntity {
   @Column({ type: "decimal", precision: 10, scale: 2 })
   value: number;
 
+  @Column({ type: "boolean", default: false })
+  passOnFee: boolean;
+
   @ManyToOne(() => MerchantEntity, (merchant) => merchant.parts, { onDelete: "CASCADE" })
+  @Column({ name: "id_merchant" })
   merchant: MerchantEntity;
 }

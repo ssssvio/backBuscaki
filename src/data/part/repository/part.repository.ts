@@ -2,7 +2,7 @@ import { Repository } from 'typeorm';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { PartEntity } from '../entities/part.entities';
-import { CreatePartDTO } from 'src/modules/part/dto/createPart-dto';
+import { PartDTO } from 'src/modules/part/dto/part-dto';
 
 @Injectable()
 export class PartRepository {
@@ -11,7 +11,7 @@ export class PartRepository {
     private readonly partRepository: Repository<PartEntity>,
   ) { }
 
-  create(data: CreatePartDTO): PartEntity {
+  create(data: PartDTO): PartEntity {
     return this.partRepository.create(data);
   }
 

@@ -2,6 +2,7 @@
 import { ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Body, Controller, HttpStatus, Post, UsePipes } from '@nestjs/common';
 import { CreatePartDTO } from './dto/createPart-dto';
+import { IPartService } from './part.service.interface';
 
 @ApiTags('Part')
 @Controller('part')

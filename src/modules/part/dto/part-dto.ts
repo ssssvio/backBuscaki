@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNotEmpty, IsString, IsOptional, IsNumber } from 'class-validator';
+import { IsNotEmpty, IsString, IsOptional, IsNumber, IsBoolean } from 'class-validator';
 
-export class CreatePartDTO {
+export class PartDTO {
   @ApiProperty({ example: 'Tela iPhone 13 Pro Max' })
   @IsString()
   @IsNotEmpty()
@@ -22,7 +22,7 @@ export class CreatePartDTO {
   @IsNotEmpty()
   readonly quality: string;
 
-  @ApiProperty({ example: 'Azul', required: false })
+  @ApiProperty({ example: 'Azul', required: false, nullable: true })
   @IsString()
   @IsOptional()
   readonly color: string;
@@ -31,4 +31,9 @@ export class CreatePartDTO {
   @IsNumber()
   @IsNotEmpty()
   readonly value: number;
+
+  @ApiProperty({ example: true })
+  @IsBoolean()
+  @IsNotEmpty()
+  readonly passOnFee: boolean;
 }

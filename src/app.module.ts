@@ -5,6 +5,7 @@ import { AuthModule } from './common/auth/auth.module';
 import { TypeOrmConfig } from './infra/config/typeorm.factory';
 import { MerchantModule } from './modules/merchant/merchant.module';
 import { CustomerModule } from './modules/customer/customer.module';
+import { PartModule } from './modules/part/part.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { CustomerModule } from './modules/customer/customer.module';
     }),
     CustomerModule,
     MerchantModule,
+    PartModule,
     AuthModule
   ],
   controllers: [],
