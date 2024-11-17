@@ -10,8 +10,8 @@ import { PostPartUseCase } from './usecases/post-part.usecase';
   imports: [PartDataModule],
   controllers: [PartController],
   providers: [
-    PartRepository,
     PartService,
+    PartRepository,
     PostPartUseCase,
     {
       provide: IPartService,

@@ -13,9 +13,9 @@ import { UserValidationModule } from 'src/shared/user-validation/user-validation
 	controllers: [MerchantController],
 	providers: [
 		MerchantService,
+		MerchantRepository,
 		PostMerchantUseCase,
 		GetMerchantByUsernameUseCase,
-		MerchantRepository,
 		{
 			provide: IMerchantService,
 			useClass: MerchantService,
