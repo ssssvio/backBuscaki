@@ -2,10 +2,15 @@ import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsString, IsOptional, IsNumber, IsBoolean } from 'class-validator';
 
 export class PartDTO {
-  @ApiProperty({ example: 'Tela iPhone 13 Pro Max' })
+  @ApiProperty({ example: 'Tela' })
   @IsString()
   @IsNotEmpty()
   readonly product: string;
+
+  @ApiProperty({ example: '13 Pro Max' })
+  @IsString()
+  @IsNotEmpty()
+  readonly model: string;
 
   @ApiProperty({ example: 'Apple' })
   @IsString()
@@ -22,7 +27,7 @@ export class PartDTO {
   @IsNotEmpty()
   readonly quality: string;
 
-  @ApiProperty({ example: 'Azul', required: false, nullable: true })
+  @ApiProperty({ example: 'Preto', required: false, nullable: true })
   @IsString()
   @IsOptional()
   readonly color: string;
@@ -30,7 +35,7 @@ export class PartDTO {
   @ApiProperty({ example: 199.99 })
   @IsNumber()
   @IsNotEmpty()
-  readonly value: number;
+  value: number;
 
   @ApiProperty({ example: true })
   @IsBoolean()

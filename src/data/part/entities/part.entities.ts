@@ -10,6 +10,9 @@ export class PartEntity {
   product: string;
 
   @Column({ type: "varchar", length: 255 })
+  model: string;
+
+  @Column({ type: "varchar", length: 255 })
   brand: string;
 
   @Column({ type: "bigint" })

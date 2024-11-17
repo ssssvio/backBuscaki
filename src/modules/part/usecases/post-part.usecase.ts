@@ -1,9 +1,9 @@
+import { PartDTO } from "../dto/part-dto";
 import { Injectable } from "@nestjs/common";
+import partSchema from "../validators/schema-part.validator";
+import { PartEntity } from "src/data/part/entities/part.entities";
 import { ICreatePartUsecase } from "../interfaces/create-part.interface";
 import { PartRepository } from "src/data/part/repository/part.repository";
-import { PartEntity } from "src/data/part/entities/part.entities";
-import { PartDTO } from "../dto/part-dto";
-
 
 @Injectable()
 export class PostPartUseCase implements ICreatePartUsecase{
@@ -12,12 +12,19 @@ export class PostPartUseCase implements ICreatePartUsecase{
   ) { }
 
   async execute(data: PartDTO): Promise<PartEntity> {
+    await partSchema.validate(data, { abortEarly: false });
 
-    // propriedades que em data é: product, brand, amount, quality, color, value, passOnFee
+    const tax = 0.1;
+    const adjustedValue = data.passOnFee 
+      ? data.value + data.value * tax 
+      : data.value - data.value * tax;
 
-    
+    const partWithTax = this.partRepository.create({
+      ...data,
+      value: adjustedValue,
+    });
 
-    const soParaPararDeDarErro = new PartEntity();
-    return soParaPararDeDarErro;
-  }
+    await this.partRepository.save(partWithTax);
+    return partWithTax;
+    }
 }
