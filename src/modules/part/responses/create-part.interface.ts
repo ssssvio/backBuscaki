@@ -8,6 +8,9 @@ export class CreatePartResponse {
   product: string;
 
   @ApiProperty()
+  model: string;
+
+  @ApiProperty()
   brand: string;
 
   @ApiProperty()
@@ -23,5 +26,5 @@ export class CreatePartResponse {
   value: number;
 
   @ApiProperty()
-  merchant: number;
+  passOnFee: boolean;
 }

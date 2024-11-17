@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { IPartService } from './part.service.interface';
-import { CreatePartDTO } from './dto/createPart-dto';
+import { PartDTO } from './dto/part-dto';
 import { PartEntity } from 'src/data/part/entities/part.entities';
 import { PostPartUseCase } from './usecases/post-part.usecase';
 
@@ -10,7 +10,7 @@ export class PartService implements IPartService {
     private readonly postPartUseCase: PostPartUseCase,
   ) { }
 
-  createPart(data: CreatePartDTO): Promise<PartEntity> {
-    return this.postPartUseCase.execute(data);
+  createPart(data: PartDTO, merchantId: number): Promise<PartEntity> {
+    return this.postPartUseCase.execute(data, merchantId);
   }
 };

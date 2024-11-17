@@ -1,6 +1,6 @@
 import { PartEntity } from "src/data/part/entities/part.entities";
-import { CreatePartDTO } from "../dto/createPart-dto";
+import { PartDTO } from "../dto/part-dto";
 
 export interface ICreatePartUsecase {
-  execute(data: CreatePartDTO): Promise<PartEntity>;
+  execute(data: PartDTO, merchantId: number): Promise<PartEntity>;
 };

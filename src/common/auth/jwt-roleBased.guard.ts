@@ -4,7 +4,6 @@ import { AuthService } from './auth.service';
 import { JwtPayload } from './interface/jwt-payload.interface';
 import { CanActivate, ExecutionContext, Injectable, UnauthorizedException } from '@nestjs/common';
 
-
 @Injectable()
 export class RoleBasedGuard implements CanActivate {
   constructor(

@@ -7,7 +7,6 @@ import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { GetMerchantByUsernameUseCase } from 'src/modules/merchant/usecases/get-merchantByUsername.usecase';
 import { GetCustomerByUsernameUseCase } from 'src/modules/customer/usecases/get-customerByUsername.usecase';
 
-
 @Injectable()
 export class AuthService {
   constructor(
