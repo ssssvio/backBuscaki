@@ -1,13 +1,14 @@
 import { Module } from '@nestjs/common';
-import { PartDataModule } from 'src/data/part/part-data.module';
-import { PartController } from './part.controller';
-import { PartRepository } from 'src/data/part/repository/part.repository';
-import { IPartService } from './part.service.interface';
 import { PartService } from './part.service';
+import { PartController } from './part.controller';
+import { IPartService } from './part.service.interface';
+import { AuthModule } from 'src/common/auth/auth.module';
 import { PostPartUseCase } from './usecases/post-part.usecase';
+import { PartDataModule } from 'src/data/part/part-data.module';
+import { PartRepository } from 'src/data/part/repository/part.repository';
 
 @Module({
-  imports: [PartDataModule],
+  imports: [PartDataModule, AuthModule],
   controllers: [PartController],
   providers: [
     PartService,

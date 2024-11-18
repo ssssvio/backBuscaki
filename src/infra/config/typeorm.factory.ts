@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { TypeOrmOptionsFactory, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { CustomerEntity } from 'src/data/customer';
 import { MerchantEntity } from 'src/data/merchant';
+import { PartEntity } from 'src/data/part';
 
 @Injectable()
 export class TypeOrmConfig implements TypeOrmOptionsFactory {
@@ -17,7 +18,7 @@ export class TypeOrmConfig implements TypeOrmOptionsFactory {
       logging: false,
       retryAttempts: 10,
       retryDelay: 30000,
-      entities: [__dirname + '/**/*.entity{.ts,.js}', MerchantEntity, CustomerEntity],
+      entities: [__dirname + '/**/*.entity{.ts,.js}', MerchantEntity, CustomerEntity, PartEntity],
       migrations: [__dirname + '/migrations/*{.ts,.js}'],
       migrationsRun: true,
       subscribers: [],

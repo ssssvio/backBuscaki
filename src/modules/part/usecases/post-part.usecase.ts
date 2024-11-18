@@ -12,6 +12,7 @@ export class PostPartUseCase implements ICreatePartUsecase{
   ) { }
 
   async execute(data: PartDTO, merchantId: number): Promise<PartEntity> {
+    console.log(data);
     await partSchema.validate(data, { abortEarly: false });
 
     const tax = 0.1;
@@ -22,8 +23,8 @@ export class PostPartUseCase implements ICreatePartUsecase{
     const partWithTax = this.partRepository.create({
       ...data,
       value: adjustedValue,
-      merchant: { id: merchantId }
-    }as PartEntity );
+      id_merchant: merchantId
+    } as PartEntity);
 
     await this.partRepository.save(partWithTax);
     return partWithTax;

@@ -17,8 +17,8 @@ import { PartModule } from './modules/part/part.module';
     }),
     CustomerModule,
     MerchantModule,
-    PartModule,
-    AuthModule
+    AuthModule,
+    PartModule
   ],
   controllers: [],
   providers: [],

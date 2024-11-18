@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import {  Module } from '@nestjs/common';
 import { MerchantService } from './merchant.service';
 import { MerchantDataModule } from 'src/data/merchant';
 import { MerchantController } from './merchant.controller';

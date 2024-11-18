@@ -2,8 +2,9 @@ import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { AuthService } from './auth.service';
 import { JwtStrategy } from './jwt.strategy';
-import { AuthController } from './auth.controller';
 import { PassportModule } from '@nestjs/passport';
+import { AuthController } from './auth.controller';
+import { RoleBasedGuard } from './jwt-roleBased.guard';
 import { MerchantModule } from 'src/modules/merchant/merchant.module';
 import { CustomerModule } from 'src/modules/customer/customer.module';
 
@@ -18,7 +19,7 @@ import { CustomerModule } from 'src/modules/customer/customer.module';
     }),
   ],
   controllers: [AuthController],
-  providers: [AuthService, JwtStrategy],
+  providers: [AuthService, JwtStrategy, RoleBasedGuard],
   exports: [AuthService],
 })
 export class AuthModule { }

@@ -1,5 +1,6 @@
 import { CustomerEntity } from 'src/data/customer';
 import { MerchantEntity } from 'src/data/merchant';
+import { PartEntity } from 'src/data/part';
 import { DataSource } from 'typeorm';
 
 export const AppDataSource = new DataSource({
@@ -11,7 +12,7 @@ export const AppDataSource = new DataSource({
   database: process.env.TYPEORM_DATABASE,
   synchronize: false,
   logging: false,
-  entities: [__dirname + '/**/*.entity{.ts,.js}', MerchantEntity, CustomerEntity],
+  entities: [__dirname + '/**/*.entity{.ts,.js}', MerchantEntity, CustomerEntity, PartEntity],
   migrations: [__dirname + '/migrations/*{.ts,.js}'],
   migrationsRun: true,
   subscribers: [],

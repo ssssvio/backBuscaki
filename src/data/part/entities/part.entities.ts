@@ -1,5 +1,4 @@
-import { MerchantEntity } from "src/data/merchant";
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('part')
 export class PartEntity {
@@ -27,10 +26,9 @@ export class PartEntity {
   @Column({ type: "decimal", precision: 10, scale: 2 })
   value: number;
 
-  @Column({ type: "boolean", default: false })
+  @Column({ type: "bit", default: false })
   passOnFee: boolean;
 
-  @ManyToOne(() => MerchantEntity, (merchant) => merchant.parts, { onDelete: "CASCADE" })
-  @Column({ name: "id_merchant" })
-  merchant: MerchantEntity;
+  @Column({ type: "bigint" })
+  id_merchant: number;
 }
