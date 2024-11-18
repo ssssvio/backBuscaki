@@ -26,7 +26,8 @@ export class RoleBasedGuard implements CanActivate {
     if (validatedPayload.role !== requiredRole) {
       throw new UnauthorizedException('Insufficient permissions');
     }
-
+    
+    request.user = validatedPayload;
     return true;
   }
 }

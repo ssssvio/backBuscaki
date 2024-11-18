@@ -1,7 +1,7 @@
 import { PartDTO } from './dto/part-dto';
 import { IPartService } from './part.service.interface';
 import { ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
-// import { RoleBasedGuard } from 'src/common/auth/jwt-roleBased.guard';
+import { RoleBasedGuard } from 'src/common/auth/jwt-roleBased.guard';
 import { Body, Controller, HttpStatus, Post, Request, SetMetadata, UseGuards, UsePipes } from '@nestjs/common';
 
 @ApiTags('Part')
@@ -11,8 +11,8 @@ export class PartController {
 
   @Post()
   @UsePipes()
-  // @SetMetadata('role', 'Merchant')
-  // @UseGuards(RoleBasedGuard)
+  @UseGuards(RoleBasedGuard)
+  @SetMetadata('role', 'Merchant')
   @ApiResponse({
     status: HttpStatus.CREATED,
     description: 'Part created',
@@ -21,7 +21,7 @@ export class PartController {
   @ApiBody({ type: PartDTO })
   async createPart(@Body() data: PartDTO, @Request() req: any) {
     console.log(req.user);
-    const merchantId = req.user.id;
+    const merchantId = req.user.sub;
     return await this.service.createPart(data, merchantId);
   }
 };

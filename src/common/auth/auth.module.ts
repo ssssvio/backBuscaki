@@ -20,6 +20,6 @@ import { CustomerModule } from 'src/modules/customer/customer.module';
   ],
   controllers: [AuthController],
   providers: [AuthService, JwtStrategy, RoleBasedGuard],
-  exports: [AuthService],
+  exports: [AuthService, JwtModule]
 })
 export class AuthModule { }
