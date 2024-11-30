@@ -11,22 +11,27 @@ export class PostPartUseCase implements ICreatePartUsecase{
     private readonly partRepository: PartRepository,
   ) { }
 
+  private calculateAdjustedValue(value: number, passOnFee: boolean): number {
+    const tax = 0.1;
+    const adjustedValue = passOnFee
+      ? value + value * tax
+      : value - value * tax;
+
+    return Number(adjustedValue.toFixed(2));
+  }
+
   async execute(data: PartDTO, merchantId: number): Promise<PartEntity> {
-    console.log(data);
     await partSchema.validate(data, { abortEarly: false });
 
-    const tax = 0.1;
-    const adjustedValue = data.passOnFee 
-      ? data.value + data.value * tax 
-      : data.value - data.value * tax;
+    const adjustedValue = this.calculateAdjustedValue(data.value, data.passOnFee);
 
-    const partWithTax = this.partRepository.create({
+    const newPart = this.partRepository.create({
       ...data,
       value: adjustedValue,
       id_merchant: merchantId
     } as PartEntity);
 
-    await this.partRepository.save(partWithTax);
-    return partWithTax;
+    await this.partRepository.save(newPart);
+    return newPart;
     }
 }

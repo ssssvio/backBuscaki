@@ -36,6 +36,7 @@ const partSchema = yup.object().shape({
   color: yup.string().nullable(),
   value: yup
     .number()
+    .min(20, 'O campo "value" deve ser maior que 20.')
     .typeError('O campo "value" deve ser um número.')
     .required('O campo "value" é obrigatório.'),
   passOnFee: yup
